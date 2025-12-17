@@ -1,0 +1,100 @@
+{
+    "camera": {
+        "pixel_samples" : 200,
+        "vfov" : 22,
+        "lookfrom" : [5, 6, 25],
+        "lookat" : [0, 0, 0],
+        "vup": [0, 1, 0],
+        "defocus_angle": 0.4,
+        "focus_dist": 19,
+        "aspect_ratio": 1.333333,
+        "image_width": 200,
+        "max_depth": 50,
+        "background": [173, 216, 230]
+    },
+
+    "materials": {        
+        "ground": {
+            "type": "lambertian",
+            "color": [152, 152, 152],
+            "fuzz": 0.5
+        },
+        "red": {
+            "type": "lambertian",
+            "color": [249, 0, 0],
+            "fuzz": 0.9
+        },
+        "purple": {
+            "type": "lambertian",
+            "color": [128, 0, 128],
+            "fuzz": 1
+        },
+        "yellow": {
+            "type": "lambertian",
+            "color": [253, 253, 150],
+            "fuzz": 1
+        },
+        "azure": {
+            "type": "lambertian",
+            "color": [0, 127, 255],
+            "fuzz": 0.8
+        },
+        "metal" : {
+            "type": "metal",
+            "color": [255, 255, 255],
+            "fuzz": 0.1
+        },
+        "glass" : {
+            "type": "dielectric",
+            "color": [255, 255, 255],
+            "refraction_index": 1.6              
+        }
+    },
+    "shapes" : [
+        {
+            "plane": {
+                "center": [0, 0, 0],
+                "normal": [0, 1, 0],
+                "material": "ground"
+            }
+        },
+        {
+            "block": {
+            "a": [-4, 0, -2],
+            "b": [0, 4, 2],
+            "material": "azure",
+            "rotate": [0, 10, 0]
+            }
+        },
+        {
+            "cylinder": {
+                "top": [4, 3, 0],
+                "bottom": [4, 0, 0],
+                "radius": 2,
+                "material": "purple"
+            }
+        },
+        {
+            "sphere": {
+            "center": [0, 1, 7],
+            "radius": 1,
+            "material": "red"
+            }
+        },       
+        {
+            "sphere": {
+            "center": [-2, 0.7, 5],
+            "radius": 0.7,
+            "material": "metal"
+            }
+        },
+        {
+            "sphere": {
+            "center": [3, 0.5, 5],
+            "radius": 0.5,
+            "material": "glass"
+            }
+        }         
+
+    ]
+}
