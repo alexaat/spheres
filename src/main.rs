@@ -47,7 +47,7 @@ fn main() {
     let camera = Camera {
         pixel_samples: 10,
         vfov: 22.0,
-        lookfrom: vec![0.0, 5.0, 40.0],
+        lookfrom: vec![-10.0, 5.0, 30.0],
         lookat: vec![0.0, 0.0, 0.0],
         vup: vec![0.0, 1.0, 0.0],
         defocus_angle: 0.4,
@@ -63,11 +63,11 @@ fn main() {
 
     add_large_spheres(&mut materials, &mut shapes);
 
-    for _ in 0..50 {
+    for _ in 0..200 {
         let (material_id, material) = if rand::random_range(0..3) > 0 {
             lambertian()
         } else {
-            if rand::random_range(0..2) > 0 {
+            if rand::random_range(0..2) == 0 {
                 metal()
             } else {
                 dielectric()
@@ -77,13 +77,13 @@ fn main() {
         materials.insert(material_id.clone(), material);
 
         loop {
-            let x = rand::random_range(-30.0..30.0);
-            let y = 1.0;
-            let z = rand::random_range(-30.0..30.0);
+            let x = rand::random_range(-20.0..20.0);
+            let y = 0.5;
+            let z = rand::random_range(-50.0..40.0);
 
             let shape = Sphere {
                 center: vec![x, y, z],
-                radius: 1.0,
+                radius: 0.5,
                 material: material_id.clone(),
             };
 
